@@ -1,6 +1,12 @@
-name: proyecto-devops
 services:
-   backend:
-     image: 
-     environment:
-     secrets:
+  mi-proyecto-devops:
+    image: localhost:8082/mi-proyecto-devops
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - AMBIENTE=development
+      - KEY = /run/secrets/api-key
+secrets:
+  api_key:
+    file: Key.txt
